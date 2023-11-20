@@ -544,7 +544,7 @@ def gen_aud_col(xp, n, s, q, init="rand", initX=np.array([[]]), crit="CD2", maxi
         raise ValueError("xp must be a numpy array.")
     elif ((n != xp.shape[0]) | (s <= xp.shape[1])):
         raise ValueError("The size of the existing design matrix xp does not match the given n,s.")
-    elif ((xp.dtype != np.int) | (1 != np.min(xp)) | (q != np.max(xp))):
+    elif ((xp.dtype != int) | (1 != np.min(xp)) | (q != np.max(xp))):
         raise ValueError("The values of the existing design matrix x0 should be integers within: 1,2,3...,q.")
     elif (any(np.array([v for i in range(xp.shape[1]) for v in np.unique(xp[:, i], return_counts=True)[1]]) > n / q)):
         raise ValueError("xp does not follow a balanced design.")
@@ -553,7 +553,7 @@ def gen_aud_col(xp, n, s, q, init="rand", initX=np.array([[]]), crit="CD2", maxi
             raise ValueError("initX must be a numpy array.")
         elif ((n != initX.shape[0]) | (s <= initX.shape[1])):
             raise ValueError("The size of the input design matrix does not match the given n,s.")
-        elif ((1 != np.min(initX)) | (q != np.max(initX)) | (initX.dtype != np.int)):
+        elif ((1 != np.min(initX)) | (q != np.max(initX)) | (initX.dtype != int)):
             raise ValueError("The values of the input design matrix initX should be integers within: 1,2,3...,q.")
         elif (any(np.array([v for i in range(initX.shape[1]) for v in np.unique(initX[:, i], return_counts=True)[1]]) > n / q)):
             raise ValueError("initX does not follow a balanced design.")
@@ -744,7 +744,7 @@ def gen_aud_ms(xp, n, s, q, crit="CD2", maxiter=100, nshoot=5, random_state=0, n
         raise ValueError("xp must be a numpy array.")
     elif ((n <= xp.shape[0]) | (s != xp.shape[1])):
         raise ValueError("The size of the existing design matrix xp does not match the given n,s.")
-    elif ((xp.dtype != np.int) | (1 > np.min(xp)) | (q < np.max(xp))):
+    elif ((xp.dtype != int) | (1 > np.min(xp)) | (q < np.max(xp))):
         raise ValueError("The values of the existing design matrix x0 should be integers within: 1,2,3...,q.")
     elif (any(np.array([v for i in range(xp.shape[1]) for v in np.unique(xp[:, i], return_counts=True)[1]]) > n / q)):
         raise ValueError("xp does not follow a balanced design, please increase the number of n or remove duplicated elements (per column) in xp.")
@@ -855,7 +855,7 @@ def gen_aud_col_ms(xp, n, s, q, crit="CD2", maxiter=100, nshoot=5, random_state=
         raise ValueError("xp must be a numpy array.")
     elif ((n != xp.shape[0]) | (s <= xp.shape[1])):
         raise ValueError("The size of the existing design matrix xp does not match the given n,s.")
-    elif ((xp.dtype != np.int) | (1 != np.min(xp)) | (q != np.max(xp))):
+    elif ((xp.dtype != int) | (1 != np.min(xp)) | (q != np.max(xp))):
         raise ValueError("The values of the existing design matrix x0 should be integers within: 1,2,3...,q.")
     elif (any(np.array([v for i in range(xp.shape[1]) for v in np.unique(xp[:, i], return_counts=True)[1]]) > n / q)):
         raise ValueError("xp does not follow a balanced design.")
